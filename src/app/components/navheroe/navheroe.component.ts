@@ -7,11 +7,11 @@ import { HeroesService, Heroe } from '../../servicios/heroes.service';
   templateUrl: './navheroe.component.html'
 })
 export class NavheroeComponent implements OnInit {
-  nombre: string;
-  bio: string;
-  img: string;
-  aparicion: string;
-  casa: string;
+  // nombre: string;
+  // bio: string;
+  // img: string;
+  // aparicion: string;
+  // casa: string;
   termino: string;
   heroes: Heroe[] = [];
 
@@ -23,7 +23,6 @@ export class NavheroeComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => {
       this.termino = params.termino;
       this.heroes = this.heroesservice.buscarHeroes(params.termino);
-
       // this.nombre = params.nombre;
       // this.bio = params.bio;
       // this.img = params.img;
@@ -32,8 +31,8 @@ export class NavheroeComponent implements OnInit {
     });
   }
 
-  verHeroe( idx: number): void{
-    this.router.navigate( ['/heroe', idx]);
-  }
+  // verHeroe( idx: number): void{
+  //   this.router.navigate( ['/heroe', idx]);
+  // }
 
 }

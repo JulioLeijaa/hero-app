@@ -1,35 +1,49 @@
 <h1 class="animated fadeIn">Buscando: <small>{{ termino }}</small></h1>
 <hr>
 
-<div class="card-columns">
-    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-        <img class="card-img-top img-fluid img-thumbnail" src="{{ heroe.img }}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{ heroe.nombre }}</h5>
-            <p class="card-text">{{ heroe.bio }}</p>
-            <p class="card-text">{{ heroe.casa }}<small class="text-muted"> {{ heroe.aparicion}}</small></p>
-            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver más</button>
-            <!-- <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary">Ver más link...</a>-->
+<div class="row animated fadeIn fast" *ngIf="heroes.length== 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término "{{ termino }}".
         </div>
     </div>
 </div>
 
-<!-- <h1 class="animated fadeIn">Resumen del héroe</h1>
-<hr>
-<div class="row animated fadeIn fast">
-    <div class="col-md-4">
-        <img src="{{ img }}" class="img-fluid img-thumbnail" alt="Imagen héroe">
-        <br>
-        <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block" style="margin-top: 16px;">Regresar</a>
+
+<div class="card-columns">
+    <app-heroe-tarjeta [heroe]="heroe" [idx]="heroe.idx" *ngFor="let heroe of heroes"></app-heroe-tarjeta>
+</div>
+
+<!-- Mostrando todos los héroes sin componente externo
+  <div class="card-columns ">
+    <div class="card animated fadeIn fast " *ngFor="let heroe of heroes; let i=i ndex ">
+        <img class="card-img-top img-fluid img-thumbnail " src="{{ heroe.img }} " alt="Card image cap ">
+        <div class="card-body ">
+            <h5 class="card-title ">{{ heroe.nombre }}</h5>
+            <p class="card-text ">{{ heroe.bio }}</p>
+            <p class="card-text ">{{ heroe.casa }}<small class="text-muted "> {{ heroe.aparicion}}</small></p>
+            <button (click)="verHeroe(i) " type="button " class="btn btn-outline-primary btn-block ">Ver más</button>
+        </div>
     </div>
-    <div class="col-md-8">
+</div> -->
+
+<!-- Mostrando sólo un héroe.
+<h1 class="animated fadeIn ">Resumen del héroe</h1>
+<hr>
+<div class="row animated fadeIn fast ">
+    <div class="col-md-4 ">
+        <img src="{{ img }} " class="img-fluid img-thumbnail " alt="Imagen héroe ">
+        <br>
+        <a [routerLink]="[ '/heroes'] " class="btn btn-outline-danger btn-block " style="margin-top: 16px; ">Regresar</a>
+    </div>
+    <div class="col-md-8 ">
         <h3>{{ nombre | uppercase }} <small>({{ aparicion | date:'y' }})</small></h3>
         <hr>
         <p>{{ bio }}</p>
-        <div class="col-md-2 editorial">
+        <div class="col-md-2 editorial ">
             <h4>Editorial: </h4>
-            <img *ngIf="casa == 'Marvel'" src="assets/img/Marvel.png" class="img-fluid img-thumbnail" alt="Imagen marca">
-            <img *ngIf="casa == 'DC'" src="assets/img/DC.svg.png" class="img-fluid img-thumbnail" alt="Imagen marca">
+            <img *ngIf="casa=='Marvel' " src="assets/img/Marvel.png " class="img-fluid img-thumbnail " alt="Imagen marca ">
+            <img *ngIf="casa=='DC' " src="assets/img/DC.svg.png " class="img-fluid img-thumbnail " alt="Imagen marca ">
         </div>
     </div>
 </div> -->
