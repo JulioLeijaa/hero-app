@@ -1,0 +1,18 @@
+<h1 class="animated fadeIn">Resumen del héroe</h1>
+<hr>
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <img src="{{ heroe.img }}" class="img-fluid img-thumbnail" alt="Imagen héroe">
+        <br>
+        <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block" style="margin-top: 16px;">Regresar</a>
+    </div>
+    <div class="col-md-8">
+        <h3>{{ heroe.nombre | uppercase }} <small>({{ heroe.aparicion | date:'y' }})</small></h3>
+        <hr>
+        <p>{{ heroe.bio }}</p>
+        <div class="col-md-2 editorial">
+            <h4>Editorial: </h4>
+            <img src="{{ casa }}" class="img-fluid img-thumbnail" alt="Imagen marca">
+        </div>
+    </div>
+</div>
